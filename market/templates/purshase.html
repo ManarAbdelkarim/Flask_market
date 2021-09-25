@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+{% block title %}
+<title>Purshased</title>
+{% endblock %}
+{% block header %}
+<h1>Purshased Items Page</h1>
+{% endblock %}
+{% block body %}
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for i in items%}
+          {% include 'includes/modal.html'%}
+          <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.price}}</td>
+            <td><button class="btn btn-outline btn-info" data-toggle="modal" data-target="#infoModal-{{i.id}}">More Info</button>
+            </td>
+          </tr>
+         {% endfor %}
+      </tbody>
+    </table>
+  
+    {% endblock %}
